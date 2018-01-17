@@ -21,7 +21,9 @@ Inspired by John Wiegley's Ledger:
   http://www.ledger-cli.org/
 """
 from __future__ import print_function
+from __future__ import division
 
+# from builtins import range
 import argparse
 import sys
 import dateutil.parser
@@ -151,15 +153,15 @@ def format_amount(amount):
 
 def extract_single_unit_amount(amounts):
     "Given a set of amounts, make sure there is exactly one currency/unit present and return that amount."
-    if len(amounts.keys()) == 1:
-        return amounts.values()[0]
+    if len(list(amounts.keys())) == 1:
+        return list(amounts.values())[0]
     # else
     raise ValueError("extract_single_unit_amount: amounts do not contain a single unit/ccy:", amounts)
 
 def extract_nil_or_single_unit_amount(amounts):
     "Given a set of amounts, make sure there is zero or one currency/unit present and return that amount."
-    if len(amounts.keys()) == 1:
-        return amounts.values()[0]
+    if len(list(amounts.keys())) == 1:
+        return list(amounts.values())[0]
     elif (amounts == {}):
         return amounts
     # else
@@ -167,8 +169,8 @@ def extract_nil_or_single_unit_amount(amounts):
 
 def extract_single_unit_quantity(amounts):
     "Given a set of amounts, make sure there is zero or one currency/unit present and return the associated quantity."
-    if len(amounts.keys()) == 1:
-        return amounts.values()[0]['quantity']
+    if len(list(amounts.keys())) == 1:
+        return list(amounts.values())[0]['quantity']
     elif (amounts == {}):
         return 0
     # else
@@ -272,7 +274,7 @@ def balance_amounts(transaction):
         units = posting['amount']['units']
         quantity = posting['amount']['quantity']
         balances[units] += quantity * sign
-    for unit in balances.keys():
+    for unit in list(balances.keys()):
         result += [{'units': unit, 'quantity': balances[unit]}]
     return result
 
@@ -584,11 +586,11 @@ def chart_of_accounts(accounts_dict, prefix = "", indent=0):
 
     accounts_dict represents hierachical structure of accounts."""
     result = []
-    account_names =  accounts_dict.keys()
+    account_names =  list(accounts_dict.keys())
     account_names.sort()
     for account_name in account_names:
         account = accounts_dict[account_name]
-        sub_accounts = account.sub_accounts.keys()
+        sub_accounts = list(account.sub_accounts.keys())
 
         if len(sub_accounts) == 0:
             result.append(AccountChartLine(name=prefix + account.original_name,
@@ -786,12 +788,12 @@ def single_unit_balances_helper(accounts_dict, account_names, prefix= "", indent
                                                   print_stars_for_org_mode=print_stars_for_org_mode)
         return result
     ## else account_names = [] => print for all accounts
-    accounts =  accounts_dict.keys()
+    accounts =  list(accounts_dict.keys())
     accounts.sort()
 
     for account in accounts:
         account_name = accounts_dict[account].original_name
-        sub_accounts = accounts_dict[account].sub_accounts.keys()
+        sub_accounts = list(accounts_dict[account].sub_accounts.keys())
         balances  = accounts_dict[account].balances
         postings = accounts_dict[account].postings
         amount_string = format_nil_or_single_unit_amount(balances)
@@ -823,11 +825,11 @@ def single_unit_report_helper(accounts_dict, account_names=None, prefix= "", ind
                                                   indent=indent)
         return result
     ## else account_names = [] => print for all accounts
-    accounts =  accounts_dict.keys()
+    accounts =  list(accounts_dict.keys())
     accounts.sort()
     for account in accounts:
         account_name = accounts_dict[account].original_name
-        sub_accounts = accounts_dict[account].sub_accounts.keys()
+        sub_accounts = list(accounts_dict[account].sub_accounts.keys())
         balances  = accounts_dict[account].balances
         postings = accounts_dict[account].postings
         balance = extract_single_unit_quantity(balances)
