@@ -20,6 +20,7 @@
 Inspired by John Wiegley's Ledger:
   http://www.ledger-cli.org/
 """
+from __future__ import print_function
 
 import argparse
 import sys
@@ -187,7 +188,7 @@ def difference_nil_or_single_unit_amount(amount1, amount2):
         return amount2
     if amount2 == {}:
         return amount1
-    if (amount1['units'] <> amount2['units']):
+    if (amount1['units'] != amount2['units']):
         raise ValueError("difference_nil_or_single_unit_amount: different units in amount1 and amount2:", amount1, amount2)
     return {'units': amount1['units'],
             'quantity': amount1['quantity'] - amount2['quantity']}
@@ -288,10 +289,10 @@ def print_transactions(transactions):
 
     Output should be in a form this code or John Wiegly's ledger can read."""
     for transaction in transactions:
-        print transaction['date'], transaction['description']
+        print(transaction['date'], transaction['description'])
         for posting in transaction['postings']:
-            print ' ', posting['account'], ' ', format_amount(posting['amount'])
-        print
+            print(' ', posting['account'], ' ', format_amount(posting['amount']))
+        print()
 
 def ensure_balanced(transactions):
     "Complain and exit if transaction isn't balanced."
@@ -334,9 +335,9 @@ def contains_account(account_string1, account_string2):
 
 def affects(transaction_or_posting, account_string):
     "Does transaction_or_posting affect named account?"
-    if transaction_or_posting.has_key('postings'):
+    if 'postings' in transaction_or_posting:
         return any([contains_account(account_string, p['account']) for p in transaction_or_posting['postings']])
-    elif transaction_or_posting.has_key('account'):
+    elif 'account' in transaction_or_posting:
         return contains_account(account_string, transaction_or_posting['account'])
     raise ValueError("Invalid transaction_or_posting in affects:", transaction_or_posting)
 
@@ -395,7 +396,7 @@ def verify_balance(verification, account_tree, verbose):
 
     if (extract_single_unit_amount(actual_balances) == amount):
         if (verbose):
-            print "Verified:", verification['date'], verification['account'], format_amount(amount)
+            print("Verified:", verification['date'], verification['account'], format_amount(amount))
     else:
         verify_failed = True
         sys.stderr.write("FAILED: verify-balance for account '%s' at %s. Expected balance: %s. Actual balance: %s.\n" %
@@ -451,7 +452,7 @@ def parse_balance_verify(line_number, line, adjust_sign):
     line = line.strip()
     split = line.split()
 
-    if len(split) <> 4:
+    if len(split) != 4:
         sys.stderr.write("Line %d: Invalid VERIFY-BALANCE operation:\n  %s\n" %
                          (line_number, line))
         sys.stderr.write("It should look like this:\n  VERIFY-BALANCE <date> <account> <amount>\nbut line %d contains %d elements (not 4).\n"%
@@ -566,14 +567,14 @@ def extract_accounts(transactions):
         for posting in transaction['postings']:
             account = posting['account']
             as_upper = account.upper()
-            if not accounts.has_key(as_upper):
+            if as_upper not in accounts:
                 accounts[as_upper] = account
     return accounts
 
 def print_accounts(accounts_dict):
     "Print chart of accounts represented in ACCOUNTS_DICT to stdout."
     for line in chart_of_accounts(accounts_dict):
-        print "  "*line.indent, line.name
+        print("  "*line.indent, line.name)
 
 AccountChartLine = namedtuple('AccountChartLine',
                               ['name', 'indent'])
@@ -639,7 +640,7 @@ def _ensure_sub_account(account_node,
                         sub_account_regular_name,
                         sub_account_original_name):
     "Internal. Make sure account is direct descendant of account, and return it."
-    if not account_node.sub_accounts.has_key(sub_account_regular_name):
+    if sub_account_regular_name not in account_node.sub_accounts:
         account_node.sub_accounts[sub_account_regular_name] = _make_account(sub_account_original_name)
     return account_node.sub_accounts[sub_account_regular_name]
 
@@ -748,7 +749,7 @@ def book_posting(posting, account_tree):
 
     for account in account_and_parents(account_string, account_tree):
         balances = account.balances
-        if balances.has_key(units):
+        if units in balances:
             balances[units]['quantity'] += quantity
         else:
             balances[units] = dict(amount)
@@ -1086,7 +1087,7 @@ def print_single_unit_balances(transactions, account_names, print_stars_for_org_
                                                    account_names,
                                                    print_stars_for_org_mode=print_stars_for_org_mode)
         for line in join_columns(justify_columns(balance_text, "LRL")):
-            print line
+            print(line)
     if first_date and last_date:
         transactions = filter_by_date(transactions, last_date = last_date)
         first_text = single_unit_balances_helper(calculate_balances(transactions, first_date),
@@ -1104,7 +1105,7 @@ def print_single_unit_balances(transactions, account_names, print_stars_for_org_
                                + [last_text[i][2]])]
 
         for line in join_columns(justify_columns(new_text , "LRRRL")):
-            print line
+            print(line)
             format_amount(difference_nil_or_single_unit_amount(parse_amount("-$1,900.00"), parse_amount("$1,900.00")))
 
 def calculate_register(transactions, account_string, include_related_postings, first_date, last_date):
@@ -1155,7 +1156,7 @@ def print_register(transactions, account_string, include_related_postings, rever
     if reverse_print_order:
         data.reverse()
     for line in data:
-        print line
+        print(line)
 
 def main():
     "Program that runs if invoked as a script."
@@ -1249,14 +1250,14 @@ def main():
             sys.stderr.write("Invalid as-at-date: '%s'.\nExiting.\n" % args.as_at)
             sys.exit(-1)
         else:
-            print "# As at:", args.as_at
+            print("# As at:", args.as_at)
 
     if (args.first_date):
         if not is_valid_date(args.first_date):
             sys.stderr.write("Invalid first-date: '%s'.\nExiting.\n" % args.first_date)
             sys.exit(-1)
         else:
-            print "# First date:", args.first_date
+            print("# First date:", args.first_date)
 
     if (args.last_date):
         if not is_valid_date(args.last_date):
@@ -1271,7 +1272,7 @@ def main():
                              % (args.first_date, args.last_date))
             sys.exit(-1)
         else:
-            print "# Last date:", args.last_date
+            print("# Last date:", args.last_date)
 
     verify_balances(transactions, verifications,
                     (args.verbose or args.show_balance_verifications),
@@ -1280,19 +1281,19 @@ def main():
     ensure_balanced(transactions)
 
     if (args.ignore_transactions_outside_dates):
-        print "# Ignoring transactions earlier/later than specified dates."
+        print("# Ignoring transactions earlier/later than specified dates.")
         transactions = filter_by_date(transactions, args.first_date, args.last_date)
 
     if (args.print_chart_of_accounts):
         for line in chart_of_accounts(account_tree_from_transactions(transactions)):
-            print "  "*line.indent, line.name
+            print("  "*line.indent, line.name)
 
     if (args.print_transactions):
         relevant_transactions = filter_by_date(transactions, args.first_date, args.last_date)
         print_transactions(relevant_transactions)
 
 
-    if (args.print_balances <> None):
+    if (args.print_balances != None):
         print_single_unit_balances(transactions, args.print_balances, args.print_stars_for_org_mode, args.as_at, args.first_date, args.last_date)
 
     if (args.print_register):
