@@ -119,7 +119,7 @@ def parse_amount(amount_string):
     if amount_string == "-":
         return {}
 
-    quantity = int(round(float(amount_string.replace('$,','')) * 100.0))
+    quantity = int(round(float(amount_string.translate({ord(c): None for c in '$,'})) * 100.0))
 
     return {'units': 'AUD',
             'quantity': quantity}
@@ -127,7 +127,7 @@ def parse_amount(amount_string):
 def parse_amount_adjusting_sign(account_string, amount_string):
     "Parse amount_string, adjust sign depending on account_string."
 
-    quantity = int(round(float(amount_string.replace('$,','')) * 100.0))
+    quantity = int(round(float(amount_string.translate({ord(c): None for c in '$,'})) * 100.0))
     quantity *= sign_account(account_string)
 
     return {'units': 'AUD',
@@ -464,7 +464,7 @@ def parse_balance_verify(line_number, line, adjust_sign):
 
     date_string = split[1]
     account_string = split[2]
-    amount_string = split[3].replace('$','')
+    amount_string = split[3].translate({ord(c): None for c in '$,'})
 
     if not is_valid_account_string(account_string):
         sys.stderr.write("Line %d: invalid account string: '%s'.\n" %
@@ -493,7 +493,7 @@ def parse_posting(line_number, line, adjust_sign):
     line = line.strip()
     split = line.split()
     account_string = split[0]
-    amount_string = split[1].replace('$','')
+    amount_string = split[1].translate({ord(c): None for c in '$,'})
 
     if not is_valid_account_string(account_string):
         sys.stderr.write("Line %d: invalid account string: '%s'.\n" %
