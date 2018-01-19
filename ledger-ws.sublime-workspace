@@ -1,0 +1,366 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ene",
+				"enex_file\tstatement"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"out",
+				"outflow"
+			],
+			[
+				"if",
+				"if\tIf Condition"
+			],
+			[
+				"pent",
+				"pent_d"
+			],
+			[
+				"ca",
+				"cars_driven"
+			],
+			[
+				"def",
+				"def\tFunction"
+			],
+			[
+				"survi",
+				"survival_table"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 215.0,
+		"last_filter": "preview",
+		"selected_items":
+		[
+			[
+				"preview",
+				"MarkdownLivePreview: Edit Current File"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"anaconda",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"markdowned",
+				"Preferences: MarkdownEditing Settings – Default"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"markdown",
+				"MarkdownEditing: Fold All Sections"
+			],
+			[
+				"fold",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"markdownlive",
+				"MarkdownLivePreview: Edit Current File"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"markdownediting",
+				"MarkdownEditing: Fold All Sections"
+			],
+			[
+				"markdownedit",
+				"Preferences: MarkdownEditing Settings – Default"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			]
+		],
+		"width": 697.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Code/ledger.py"
+	],
+	"file_history":
+	[
+		"/C/Users/willb/Google Drive/EvernoteExport/Markdown/export.json",
+		"/C/Users/willb/.virtualenvs/evernotetomd-eiidHnk4/Lib/site-packages/ever2simple/converter.py",
+		"/C/Users/willb/.virtualenvs/evernotetomd-eiidHnk4/Lib/site-packages/ever2simple/core.py",
+		"/C/Code/VirtualEnv/my_project/Lib/fnmatch.py",
+		"/C/Code/Ledger/ledger refactor hints.md",
+		"/C/Python36/Scripts/futurize-script.py",
+		"/C/Code/ledger.py/ledger.py",
+		"/C/Code/ledger.py/doc/Ledger.md",
+		"/C/Code/ledger.py/doc/Reference.md",
+		"/C/Python36/Lib/site-packages/exchanges/base.py",
+		"/C/Code/whiskyton/Pipfile",
+		"/C/Code/whiskyton/Pipfile.lock",
+		"/C/Python36/Lib/site-packages/exchanges/bitfinex.py",
+		"/C/Code/Dash/app.py",
+		"/C/Users/willb/temp.csv",
+		"/C/Python36/Lib/site-packages/exchanges/helpers.py",
+		"/C/Python36/Lib/site-packages/exchanges/bitstamp.py",
+		"/C/Code/Euler/P045.py",
+		"/C/Code/Euler/P044.py",
+		"/C/Code/ledger.py/Budget - Try 2 as of 2017-11-10 1046 PM-Register.csv",
+		"/C/Code/ledger.py/ynab_to_ledger.py",
+		"/C/Code/ledger.py/xBudget_Mini.csv",
+		"/C/Code/ledger.py/Budget - Try 2 as of 2017-11-16 1114 PM-Register.csv",
+		"/C/Code/ledger.py/Budget - Try 2 as of 2017-11-16 1046 PM-Register.dat",
+		"/C/Code/ledger.py/ynab.dat",
+		"/C/Users/willb/Dropbox/YNAB/Exports/Budget_Mini.csv",
+		"/C/Code/ledger.py/Budget_Mini.csv",
+		"/C/Code/Kaggle/Titanic/genderclassmodel.py",
+		"/C/Code/Euler/eulertools.py",
+		"/C/Users/willb/Downloads/20170926_195205.txt",
+		"/C/Code/Euler/P041.py",
+		"/C/Code/Qlik/qs.html",
+		"/C/Users/willb/Downloads/20170926_195205.mp4",
+		"/C/Users/willb/Downloads/20170926_195205.jpg",
+		"/C/Users/willb/Downloads/Qvc.qvs",
+		"/C/Code/Notes/Inbox Management.md",
+		"/C/Users/willb/Dropbox/todo/todo.txt",
+		"/C/Users/willb/Downloads/qvc-11.2/QlikviewComponents-11.2/Doc/QvcDocumentation.qvw",
+		"/C/Users/willb/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
+		"/C/Users/willb/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/willb/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Bold and Italic Markers.tmPreferences",
+		"/C/Users/willb/AppData/Roaming/Sublime Text 3/Installed Packages/MarkdownHighlighting.sublime-package",
+		"/C/Code/Notes/Real Number Space.md",
+		"/C/Code/Markdown_Trial.md",
+		"/C/Code/Notes/FRTB VaR Generator.py",
+		"/C/Users/willb/AppData/Roaming/Sublime Text 3/Packages/User/MarkdownLivePreview.css",
+		"/C/Code/Notes/temp2.csv",
+		"/C/Code/Notes/temp.csv",
+		"/C/Code/Notes",
+		"/C/Code/lpthw/ex4.py",
+		"/C/Code/Coroutines/coroutines/follow.py",
+		"/C/Code/Coroutines/coroutines/logsim.py",
+		"/C/Code/Dash/simpleapp.py",
+		"/C/Code/Kaggle/Titanic/myfirstforest.py",
+		"/C/Code/Coroutines/coroutines/access-log",
+		"/C/Code/Coroutines/coroutines/coroutine.py",
+		"/C/Code/Kaggle/Titanic/gendermodel.py",
+		"/C/Code/Coroutines/coroutines/countdown.py",
+		"/C/Code/lpthw/ex2.py",
+		"/C/Code/lpthw/ex3_float.py",
+		"/C/Code/lpthw/ex1.py",
+		"/C/Code/MapReduce/output.txt",
+		"/C/Code/MapReduce/reduce.py",
+		"/C/Code/MapReduce/mapper.py",
+		"/C/Code/MapReduce/new.txt",
+		"/C/Users/willb/Downloads/triange.py"
+	],
+	"find":
+	{
+		"height": 52.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 243.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ledger-ws.sublime-project",
+	"replace":
+	{
+		"height": 63.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"acces",
+				"coroutines\\access-log"
+			],
+			[
+				"log",
+				"coroutines\\logsim.py"
+			],
+			[
+				"follo",
+				"coroutines\\follow.py"
+			],
+			[
+				"count",
+				"coroutines\\countdown.py"
+			],
+			[
+				"cor",
+				"coroutines\\coroutine.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Code\\Dash\\dash.sublime-project"
+			]
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 225.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
